@@ -92,15 +92,15 @@
                 .then(data => {
                     if (data.key) {
                         messageDiv.innerHTML = `
-                            <h2 class="success">Your key: ${data.key}</h2>
-                            <button class="copy-button" onclick="copyToClipboard('${data.key}')">Copy</button>
+                            <h2 class="success">Ваш ключ: ${data.key}</h2>
+                            <button class="copy-button" onclick="copyToClipboard('${data.key}')">Скопировать</button>
                         `;
                     } else if (data.error) {
                         messageDiv.innerHTML = `<h2 class="error">${data.error}</h2>`;
                     }
                 })
                 .catch(error => {
-                    console.error('Ошибка:', error);
+                    console.error('Произощла ошибка! Код ошибки:', error);
                     messageDiv.innerHTML = `<h2 class="error">Try again.</h2>`;
                 });
             });
@@ -108,7 +108,7 @@
 
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('Key copied to clipboard!');
+                alert('Ваш ключ готов и уже скопировался в ваш буфер обмена');
             }).catch(err => {
                 console.error('Failed to copy: ', err);
             });
